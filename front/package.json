@@ -1,0 +1,44 @@
+{
+  "name": "next-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next -p 81",
+    "build": "cross-env NODE_ENV=production next build",
+    "start": "cross-env NODE_ENV=production next -p 80"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heroyooi/next-project.git"
+  },
+  "author": "Heroyooi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heroyooi/next-project/issues"
+  },
+  "homepage": "https://github.com/heroyooi/next-project#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "immer": "^8.0.0",
+    "next": "^10.0.3",
+    "next-redux-wrapper": "^6.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^4.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  }
+}
