@@ -25,7 +25,7 @@ export const Filter = styled.ul`
       margin-left: 0;
     }
     &.on {
-      color: red;
+      color: #964b00;
       text-decoration: underline;
     }
   }
@@ -41,10 +41,18 @@ export const Card = styled.ul`
     &:first-child {
       margin-top: 0;
     }
-    .title {
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #000;
+    span {
+      display: block;
+      &.title {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #000;
+      }
+      &.desc {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
     }
   }
 `;

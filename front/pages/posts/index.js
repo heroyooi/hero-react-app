@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppLayout } from 'components';
-import { SubTitle, Filter, Card } from 'styles/common';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { AppLayout, PostCard } from 'components';
+import { SubTitle, Filter } from 'styles/common';
 import { ContentWrap } from 'styles/layout';
 import * as postActions from 'store/modules/post';
 import classNames from 'classnames/bind';
 
 const Posts = () => {
   const dispatch = useDispatch();
-  const { mainPosts } = useSelector((state) => state.post);
+  const { mainPosts } = useSelector((state) => state.post, shallowEqual);
 
   const [order, setOrder] = useState('ASC');
 
@@ -32,7 +32,7 @@ const Posts = () => {
 
   return (
     <AppLayout>
-      <SubTitle size={24}>Promise 테스트 - POSTS</SubTitle>
+      <SubTitle size={24}>게시글 - /posts</SubTitle>
       <ContentWrap>
         <Filter top={-30}>
           <li className={descLi} onClick={onSetOrder('DESC')}>
@@ -42,20 +42,7 @@ const Posts = () => {
             오름차순 (ASC)
           </li>
         </Filter>
-        {!mainPosts.length === 0 ? (
-          <>글 읽어오는 중...</>
-        ) : (
-          <Card>
-            {mainPosts?.map((post, index) => {
-              return (
-                <li key={post.id}>
-                  <p>{post.title}</p>
-                  <p>{post.desc}</p>
-                </li>
-              );
-            })}
-          </Card>
-        )}
+        {!mainPosts.length === 0 ? <>글 읽어오는 중...</> : <PostCard posts={mainPosts} />}
       </ContentWrap>
     </AppLayout>
   );

@@ -1,10 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
-import { AppLayout } from 'components';
+import { AppLayout, PostCard } from 'components';
 import { SubTitle, Card } from 'styles/common';
 import * as postActions from 'store/modules/post';
 import wrapper from 'store/configureStore';
 import axios from 'axios';
+import Link from 'next/link';
 
 const PostsSSR = () => {
   const { mainPosts, loadPostsLoading, totalCounts } = useSelector(
@@ -31,17 +32,8 @@ const PostsSSR = () => {
 
   return (
     <AppLayout>
-      <SubTitle size={24}>Promise 테스트 - POSTS</SubTitle>
-      <Card>
-        {mainPosts?.map((post, index) => {
-          return (
-            <li key={post.id}>
-              <p className="title">{post.title}</p>
-              <p className="desc">{post.desc}</p>
-            </li>
-          );
-        })}
-      </Card>
+      <SubTitle size={24}>게시글 SSR - /posts</SubTitle>
+      <PostCard posts={mainPosts} />
       {totalCounts > limit && (
         <button onClick={onMore} disabled={loadPostsLoading}>
           더보기
