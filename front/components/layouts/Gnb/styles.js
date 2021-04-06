@@ -5,10 +5,32 @@ export const GnbWrap = styled.ul`
   left: 230px;
   top: 18px;
   li {
+    position: relative;
     float: left;
     margin-left: 10px;
+    padding-left: 10px;
+    &:before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 10px;
+      background: #ddd;
+      position: absolute;
+      left: 0;
+      top: 5px;
+    }
+    &.on {
+      a {
+        font-weight: 500;
+        color: #964b00;
+      }
+    }
     &:first-child {
       margin-left: 0;
+      padding-left: 0;
+      &:before {
+        display: none;
+      }
     }
     a {
       font-weight: 500;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppLayout } from 'components';
-import { SubTitle, Filter } from 'styles/common';
+import { SubTitle, Filter, Card } from 'styles/common';
 import { ContentWrap } from 'styles/layout';
 import * as postActions from 'store/modules/post';
 import classNames from 'classnames/bind';
@@ -34,7 +34,7 @@ const Posts = () => {
     <AppLayout>
       <SubTitle size={24}>Promise 테스트 - POSTS</SubTitle>
       <ContentWrap>
-        <Filter>
+        <Filter top={-30}>
           <li className={descLi} onClick={onSetOrder('DESC')}>
             내름차순 (DESC)
           </li>
@@ -45,16 +45,16 @@ const Posts = () => {
         {!mainPosts.length === 0 ? (
           <>글 읽어오는 중...</>
         ) : (
-          <ul>
+          <Card>
             {mainPosts?.map((post, index) => {
               return (
                 <li key={post.id}>
                   <p>{post.title}</p>
-                  <p>{post.author}</p>
+                  <p>{post.desc}</p>
                 </li>
               );
             })}
-          </ul>
+          </Card>
         )}
       </ContentWrap>
     </AppLayout>

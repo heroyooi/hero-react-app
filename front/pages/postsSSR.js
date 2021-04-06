@@ -1,13 +1,20 @@
 import React, { useState, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { AppLayout } from 'components';
-import { SubTitle } from 'styles/common';
+import { SubTitle, Card } from 'styles/common';
 import * as postActions from 'store/modules/post';
 import wrapper from 'store/configureStore';
 import axios from 'axios';
 
 const PostsSSR = () => {
-  const { mainPosts } = useSelector((state) => state.post);
+  const { mainPosts, loadPostsLoading, totalCounts } = useSelector(
+    (state) => ({
+      mainPosts: state.post.mainPosts,
+      loadPostsLoading: state.post.loadPostsLoading,
+      totalCounts: state.post.totalCounts,
+    }),
+    shallowEqual,
+  );
   const dispatch = useDispatch();
 
   const [limit, setLimit] = useState(10);
@@ -25,17 +32,21 @@ const PostsSSR = () => {
   return (
     <AppLayout>
       <SubTitle size={24}>Promise 테스트 - POSTS</SubTitle>
-      <ul>
+      <Card>
         {mainPosts?.map((post, index) => {
           return (
             <li key={post.id}>
-              <p>{post.title}</p>
-              <p>{post.author}</p>
+              <p className="title">{post.title}</p>
+              <p className="desc">{post.desc}</p>
             </li>
           );
         })}
-      </ul>
-      <button onClick={onMore}>더보기</button>
+      </Card>
+      {totalCounts > limit && (
+        <button onClick={onMore} disabled={loadPostsLoading}>
+          더보기
+        </button>
+      )}
     </AppLayout>
   );
 };
@@ -43,8 +54,6 @@ const PostsSSR = () => {
 export const getServerSideProps = wrapper.getServerSideProps(async (context) => {
   const cookie = context.req ? context.req.headers.cookie : '';
   axios.defaults.headers.Cookie = '';
-  // 쿠키가 브라우저에 있는 경우만 넣어서 실행
-  // (주의, 아래 조건이 없다면 다른 사람으로 로그인 될 수도 있음)
   if (context.req && cookie) {
     axios.defaults.headers.Cookie = cookie;
   }
@@ -53,6 +62,7 @@ export const getServerSideProps = wrapper.getServerSideProps(async (context) => 
       _limit: 10,
     }),
   );
+  await context.store.dispatch(postActions.getTotalCounts());
 });
 
 export default PostsSSR;

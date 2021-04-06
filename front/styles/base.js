@@ -67,6 +67,9 @@ export const Global = createGlobalStyle`
   textarea {
     resize: none;
   }
+  button:disabled {
+    cursor:default;
+  }
 
   #wrapper {
     max-width: 1200px;

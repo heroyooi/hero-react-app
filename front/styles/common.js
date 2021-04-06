@@ -16,7 +16,7 @@ export const SubTitle = styled.h2`
 export const Filter = styled.ul`
   position: absolute;
   right: 0;
-  top: 0;
+  top: ${(props) => props.top}px;
   li {
     float: left;
     margin-left: 10px;
@@ -27,6 +27,24 @@ export const Filter = styled.ul`
     &.on {
       color: red;
       text-decoration: underline;
+    }
+  }
+`;
+
+export const Card = styled.ul`
+  margin-bottom: 10px;
+  li {
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 10px;
+    &:first-child {
+      margin-top: 0;
+    }
+    .title {
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #000;
     }
   }
 `;

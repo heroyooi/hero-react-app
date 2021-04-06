@@ -1,5 +1,10 @@
 import utils from 'utils';
 
+export const totalCounts = async () => {
+  const url = `http://localhost:82/posts`;
+  return utils.axiosGet(url);
+};
+
 export const loadPosts = async (param) => {
   if (utils.isEmpty(param)) {
     throw new utils.CustomException(new Error('REQ PARAM MISSING'), 'API_ERROR', 'post.loadPosts');
