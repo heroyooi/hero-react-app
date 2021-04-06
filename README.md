@@ -23,6 +23,8 @@
   - redux-actions
   - redux-thunk
 
+  - classnames
+
 - Dev Dependencies
 
   - eslint

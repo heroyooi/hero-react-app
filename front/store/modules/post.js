@@ -16,7 +16,7 @@ const initialState = {
   loadPostsError: null,
 };
 
-export const getLoadPost = createPromiseThunk(LOAD_POSTS, api.loadPost);
+export const getLoadPosts = createPromiseThunk(LOAD_POSTS, api.loadPosts);
 
 export default handleActions(
   {

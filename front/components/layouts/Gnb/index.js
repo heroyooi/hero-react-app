@@ -23,6 +23,11 @@ const Gnb = () => {
           <a>POSTS</a>
         </Link>
       </li>
+      <li>
+        <Link href="/postsSSR">
+          <a>POSTS - SSR</a>
+        </Link>
+      </li>
     </GnbWrap>
   );
 };

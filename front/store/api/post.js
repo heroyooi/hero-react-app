@@ -1,15 +1,10 @@
-import axios from 'axios';
 import utils from 'utils';
 
-export const loadPost = async (param) => {
-  // if (utils.isEmpty(param)) {
-  //   throw new utils.CustomException(new Error('REQ PARAM MISSING'), 'API_ERROR', 'post.loadPost');
-  // }
-  let res;
-  if (param) {
-    res = await axios.get(`http://localhost:82/posts/${param}`);
-  } else {
-    res = await axios.get(`http://localhost:82/posts`);
+export const loadPosts = async (param) => {
+  if (utils.isEmpty(param)) {
+    throw new utils.CustomException(new Error('REQ PARAM MISSING'), 'API_ERROR', 'post.loadPosts');
   }
-  return res;
+  const url = `http://localhost:82/posts`;
+  // const url = `http://localhost:82/posts?_sort=id&_order=ASC`;
+  return utils.axiosGet(url, param);
 };

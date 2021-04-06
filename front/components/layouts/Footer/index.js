@@ -10,7 +10,7 @@ const Footer = () => {
           <a>HERO REACT APP</a>
         </Link>
       </h2>
-      <p>ⓒ 2021 PUBLISHING BY SUNG-YEONWOOK</p>
+      <p>ⓒ 2021 PUBLISHING BY 성연욱</p>
     </FooterWrap>
   );
 };

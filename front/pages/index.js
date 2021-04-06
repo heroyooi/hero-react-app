@@ -8,6 +8,8 @@ const Index = () => {
     { name: '프로필', href: '/profile' },
     { name: '회원가입', href: '/signup' },
     { name: '테스트/유틸', href: '/test/utils' },
+    { name: 'GET POSTS', href: '/posts' },
+    { name: 'GET POSTS - SSR', href: '/postsSSR' },
   ];
 
   return (

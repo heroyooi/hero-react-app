@@ -3,97 +3,109 @@
     {
       "id": 17,
       "title": "제목17",
-      "author": "내용 17"
+      "author": "내용 17",
+      "createdAt": "2021.04.06"
     },
     {
       "id": 16,
       "title": "제목16",
-      "author": "내용 16"
+      "author": "내용 16",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 15,
       "title": "제목15",
-      "author": "내용 15"
+      "author": "내용 15",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 14,
       "title": "제목14",
-      "author": "내용 14"
+      "author": "내용 14",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 13,
       "title": "제목13",
-      "author": "내용 13"
+      "author": "내용 13",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 12,
       "title": "제목12",
-      "author": "내용 12"
+      "author": "내용 12",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 11,
       "title": "제목11",
-      "author": "내용 11"
+      "author": "내용 11",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 10,
       "title": "제목10",
-      "author": "내용 10"
+      "author": "내용 10",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 9,
       "title": "제목9",
-      "author": "내용 9"
+      "author": "내용 9",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 8,
       "title": "제목8",
-      "author": "내용 8"
+      "author": "내용 8",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 7,
       "title": "제목7",
-      "author": "내용 7"
+      "author": "내용 7",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 6,
       "title": "제목6",
-      "author": "내용 6"
+      "author": "내용 6",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 5,
       "title": "제목5",
-      "author": "내용 5"
+      "author": "내용 5",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 4,
       "title": "제목4",
-      "author": "내용 4"
+      "author": "내용 4",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 3,
       "title": "제목3",
-      "author": "내용 3"
+      "author": "내용 3",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 2,
       "title": "제목2",
-      "author": "내용 2"
+      "author": "내용 2",
+      "createdAt": "2021.04.05"
     },
     {
       "id": 1,
       "title": "제목1",
-      "author": "내용 1"
+      "author": "내용 1",
+      "createdAt": "2021.04.05"
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "내용"
+  "me": {
+    "id": "heroyooi",
+    "name": "성연욱",
+    "age": 37
   }
 }

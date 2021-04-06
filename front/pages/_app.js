@@ -7,12 +7,12 @@ import wrapper from 'store/configureStore';
 enableES5();
 setAutoFreeze(process.env.NODE_ENV !== 'production');
 
-const NextProject = ({ Component }) => {
+const App = ({ Component }) => {
   return (
     <>
       <Head>
         <meta charSet="utf-8" />
-        <title>NEXT PROJECT</title>
+        <title>HERO REACT APP</title>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
@@ -24,8 +24,8 @@ const NextProject = ({ Component }) => {
   );
 };
 
-NextProject.propTypes = {
+App.propTypes = {
   Component: PropTypes.elementType.isRequired,
 };
 
-export default wrapper.withRedux(NextProject);
+export default wrapper.withRedux(App);
