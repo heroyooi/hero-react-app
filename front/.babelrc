@@ -13,12 +13,11 @@
       {
         "root": ["./"],
         "alias": {
-          "components": "./components",
-          "hooks": "./hooks",
-          "store": "./store",
-          "reducers": "./reducers",
-          "utils": "./utils",
-          "styles": "./styles"
+          "@components": "./components",
+          "@hooks": "./hooks",
+          "@store": "./store",
+          "@utils": "./utils",
+          "@styles": "./styles"
         },
         "extensions": [".js", ".jsx"]
       }

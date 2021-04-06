@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Card } from 'styles/common';
+import { Card } from '@styles/common';
 
 const PostCard = ({ posts }) => {
   return (

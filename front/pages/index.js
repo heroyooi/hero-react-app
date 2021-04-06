@@ -1,6 +1,6 @@
 import React from 'react';
-import { AppLayout, CodingMap, ComponentMap } from 'components';
-import { SubTitle } from 'styles/common';
+import { AppLayout, CodingMap, ComponentMap } from '@components';
+import { SubTitle } from '@styles/common';
 
 const Index = () => {
   const listData = [

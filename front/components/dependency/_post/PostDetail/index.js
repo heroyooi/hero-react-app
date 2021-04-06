@@ -10,7 +10,7 @@ const PostDetail = ({ post }) => {
         <p className="desc">{post.desc}</p>
       </PostDetailWrapper>
       <button>
-        <Link href="/posts">목록으로</Link>
+        <Link href="/posts">목록</Link>
       </button>
     </>
   );

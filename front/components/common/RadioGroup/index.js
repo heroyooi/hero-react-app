@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { Radio } from 'components';
+import { Radio } from '@components';
 import { RadioGroupWrap } from './styles';
 
 const RadioGroup = ({ items, onChange }) => {

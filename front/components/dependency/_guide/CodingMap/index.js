@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { SubTitle } from 'styles/common';
+import { SubTitle } from '@styles/common';
 import { CodingMapWrap } from './styles';
 
 const CodingMap = ({ list }) => {

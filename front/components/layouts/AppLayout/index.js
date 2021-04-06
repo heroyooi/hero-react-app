@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { Header, Footer } from 'components';
-import styles from 'styles';
+import { Header, Footer } from '@components';
+import styles from '@styles';
 
 const AppLayout = ({ children }) => {
   const { Global, Container } = styles;

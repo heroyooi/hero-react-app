@@ -2,8 +2,8 @@ import React, { useState, useCallback, useEffect } from 'react';
 import produce from 'immer';
 
 import { ComponentMapWrap } from './styles';
-import { SubTitle } from 'styles/common';
-import { Checkbox, CheckboxGroup, Radio, RadioGroup } from 'components';
+import { SubTitle } from '@styles/common';
+import { Checkbox, CheckboxGroup, Radio, RadioGroup } from '@components';
 
 const ComponentMap = () => {
   // Checkbox

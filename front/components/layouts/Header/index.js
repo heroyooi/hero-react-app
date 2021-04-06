@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { HeaderWrap } from './styles';
-import { Gnb, Util } from 'components';
+import { Gnb, Util } from '@components';
 
 const Header = () => {
   return (

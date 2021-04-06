@@ -24,6 +24,7 @@
   - redux-thunk
 
   - classnames
+  - shortid
 
 - Dev Dependencies
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IE_BROWSER } from 'styles/base';
+import { IE_BROWSER } from '@styles/base';
 
 export const RadioWrap = styled.span`
   position: relative;

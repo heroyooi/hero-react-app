@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useInput, useResize } from 'hooks';
-import { AppLayout } from 'components';
-import { SubTitle } from 'styles/common';
-import { TestSection } from 'styles/test';
-import utils from 'utils';
+import { AppLayout } from '@components';
+import { SubTitle } from '@styles/common';
+import { TestSection } from '@styles/test';
+import utils from '@utils';
 
 const Utils = () => {
   const targetEl = useRef(null);

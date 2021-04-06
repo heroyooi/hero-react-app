@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppLayout, PostDetail } from 'components';
-import { SubTitle } from 'styles/common';
-import { ContentWrap } from 'styles/layout';
-import * as postActions from 'store/modules/post';
+import { AppLayout, PostDetail } from '@components';
+import { SubTitle } from '@styles/common';
+import { ContentWrap } from '@styles/layout';
+import * as postActions from '@store/modules/post';
 import { useRouter } from 'next/router';
 
 const Posts = () => {

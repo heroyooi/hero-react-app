@@ -1,11 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
-import { AppLayout, PostCard } from 'components';
-import { SubTitle, Card } from 'styles/common';
-import * as postActions from 'store/modules/post';
-import wrapper from 'store/configureStore';
 import axios from 'axios';
-import Link from 'next/link';
+import { AppLayout, PostCard } from '@components';
+import { SubTitle, Card } from '@styles/common';
+import * as postActions from '@store/modules/post';
+import wrapper from '@store/configureStore';
 
 const PostsSSR = () => {
   const { mainPosts, loadPostsLoading, totalCounts } = useSelector(

@@ -1,8 +1,8 @@
 import { createAction, handleActions } from 'redux-actions';
-import createPromiseThunk from 'store/createPromiseThunk';
+import createPromiseThunk from '@store/createPromiseThunk';
 import produce from 'immer';
 
-import * as api from 'store/api/post';
+import * as api from '@store/api/post';
 
 export const TOTAL_COUNTS = 'TOTAL_COUNTS';
 export const TOTAL_COUNTS_REQUEST = 'TOTAL_COUNTS_REQUEST';
@@ -19,6 +19,11 @@ export const LOAD_POSTS_REQUEST = 'LOAD_POSTS_REQUEST';
 export const LOAD_POSTS_SUCCESS = 'LOAD_POSTS_SUCCESS';
 export const LOAD_POSTS_FAILURE = 'LOAD_POSTS_FAILURE';
 
+export const CREATE_POST = 'CREATE_POST';
+export const CREATE_POST_REQUEST = 'CREATE_POST_REQUEST';
+export const CREATE_POST_SUCCESS = 'CREATE_POST_SUCCESS';
+export const CREATE_POST_FAILURE = 'CREATE_POST_FAILURE';
+
 const initialState = {
   totalCounts: 0,
   totalCountsLoading: false, // 전체글 불러오기 시도중
@@ -34,11 +39,16 @@ const initialState = {
   loadPostsLoading: false, // 전체글 불러오기 시도중
   loadPostsDone: false,
   loadPostsError: null,
+
+  createPostLoading: false, // 글 작성 시도중
+  createPostDone: false,
+  createPostError: null,
 };
 
 export const getTotalCounts = createPromiseThunk(TOTAL_COUNTS, api.totalCounts);
 export const getLoadPost = createPromiseThunk(LOAD_POST, api.loadPost);
 export const getLoadPosts = createPromiseThunk(LOAD_POSTS, api.loadPosts);
+export const createPost = createPromiseThunk(CREATE_POST, api.addPost);
 
 export default handleActions(
   {
@@ -106,6 +116,27 @@ export default handleActions(
       return produce(state, (draft) => {
         draft.loadPostsLoading = false;
         draft.loadPostsError = action.payload;
+      });
+    },
+
+    [CREATE_POST_REQUEST]: (state, action) => {
+      return produce(state, (draft) => {
+        draft.createPostLoading = true;
+        draft.createPostError = null;
+        draft.createPostDone = false;
+      });
+    },
+    [CREATE_POST_SUCCESS]: (state, action) => {
+      return produce(state, (draft) => {
+        draft.createPostLoading = false;
+        draft.createPostDone = true;
+        draft.mainPosts.unshift(action.payload);
+      });
+    },
+    [CREATE_POST_FAILURE]: (state, action) => {
+      return produce(state, (draft) => {
+        draft.createPostLoading = false;
+        draft.createPostError = action.payload;
       });
     },
   },

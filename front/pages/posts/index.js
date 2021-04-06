@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
-import { AppLayout, PostCard } from 'components';
-import { SubTitle, Filter } from 'styles/common';
-import { ContentWrap } from 'styles/layout';
-import * as postActions from 'store/modules/post';
 import classNames from 'classnames/bind';
+import { AppLayout, PostCard } from '@components';
+import { SubTitle, Filter } from '@styles/common';
+import { ContentWrap } from '@styles/layout';
+import * as postActions from '@store/modules/post';
+import PostForm from '../../components/dependency/_post/PostForm';
 
 const Posts = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const Posts = () => {
   return (
     <AppLayout>
       <SubTitle size={24}>게시글 - /posts</SubTitle>
+      <PostForm />
       <ContentWrap>
         <Filter top={-30}>
           <li className={descLi} onClick={onSetOrder('DESC')}>

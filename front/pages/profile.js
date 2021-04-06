@@ -1,6 +1,6 @@
 import React from 'react';
-import { AppLayout } from 'components';
-import { SubTitle } from 'styles/common';
+import { AppLayout } from '@components';
+import { SubTitle } from '@styles/common';
 
 const Profile = () => {
   return (
