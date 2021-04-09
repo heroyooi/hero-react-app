@@ -1,31 +1,29 @@
 import utils from '@utils';
 
+const baseURL = 'http://localhost:82';
+
 export const totalCounts = async () => {
-  const url = `http://localhost:82/posts`;
-  return utils.axiosGet(url);
+  return utils.axiosGet(`${baseURL}/posts`);
 };
 
 export const loadPost = async (id) => {
   if (utils.isEmpty(id)) {
     throw new utils.CustomException(new Error('REQ PARAM MISSING'), 'API_ERROR', 'post.loadPost');
   }
-  const url = `http://localhost:82/posts/${id}`;
-  return utils.axiosGet(url);
+  return utils.axiosGet(`${baseURL}/posts/${id}`);
 };
 
 export const loadPosts = async (param) => {
   if (utils.isEmpty(param)) {
     throw new utils.CustomException(new Error('REQ PARAM MISSING'), 'API_ERROR', 'post.loadPosts');
   }
-  const url = `http://localhost:82/posts`;
-  // const url = `http://localhost:82/posts?_sort=id&_order=ASC`;
-  return utils.axiosGet(url, param);
+  // const url = `${baseURL}/posts?_sort=id&_order=ASC`;
+  return utils.axiosGet(`${baseURL}/posts`, param);
 };
 
 export const addPost = async (param) => {
   if (utils.isEmpty(param)) {
     throw new utils.CustomException(new Error('REQ PARAM MISSING'), 'API_ERROR', 'post.addPost');
   }
-  const url = `http://localhost:82/posts`;
-  return utils.axiosPost(url, param);
+  return utils.axiosPost(`${baseURL}/posts`, param);
 };
