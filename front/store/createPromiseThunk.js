@@ -28,7 +28,7 @@ const analyzeError = (errObject) => {
   } else {
     // timeout error 케이스에 대해서도 대처가 필요함.
     // 판별 불가한 오류인 경우 로그를 통해 format 확인 필요.
-    utils.log('UNKNOW ERROR ::: ', errObject);
+    utils.log('UNKNOWN ERROR ::: ', errObject);
     return {
       result_code: 'UNKNOWN_ERROR',
       result_message: '잠시후 다시 시도해주세요',

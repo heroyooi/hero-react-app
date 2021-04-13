@@ -54,7 +54,16 @@ export const getTotalCounts = createPromiseThunk(TOTAL_COUNTS, api.totalCounts);
 export const getLoadPost = createPromiseThunk(LOAD_POST, api.loadPost);
 export const getLoadPosts = createPromiseThunk(LOAD_POSTS, api.loadPosts);
 export const createPost = createPromiseThunk(CREATE_POST, api.addPost);
-export const deletePost = createPromiseThunk(DELETE_POST, api.removePost);
+
+export const deletePost = (id) => {
+  try {
+    return createPromiseThunk(DELETE_POST, api.removePost, { id });
+  } catch (error) {
+    throw error;
+  }
+};
+
+// export const deletePost = createPromiseThunk(DELETE_POST, api.removePost);
 
 export default handleActions(
   {
@@ -88,6 +97,7 @@ export default handleActions(
     },
     [LOAD_POST_SUCCESS]: (state, action) => {
       return produce(state, (draft) => {
+        console.log('::: ', action);
         draft.loadPostLoading = false;
         draft.loadPostDone = true;
         draft.singlePost = action.payload;
@@ -155,10 +165,9 @@ export default handleActions(
     },
     [DELETE_POST_SUCCESS]: (state, action) => {
       return produce(state, (draft) => {
-        console.log(11111, action);
         draft.deletePostLoading = false;
         draft.deletePostDone = true;
-        draft.mainPosts = draft.mainPosts.filter((v) => v.id !== action.payload);
+        draft.mainPosts = draft.mainPosts.filter((v) => v.id !== action.reqInfo.id);
       });
     },
     [DELETE_POST_FAILURE]: (state, action) => {

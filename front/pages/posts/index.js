@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import classNames from 'classnames/bind';
-import { AppLayout, PostCard } from '@components';
+import { AppLayout, PostCard, PostForm } from '@components';
 import { SubTitle, Filter } from '@styles/common';
 import { ContentWrap } from '@styles/layout';
 import * as postActions from '@store/modules/post';
-import PostForm from '../../components/dependency/_post/PostForm';
 
 const Posts = () => {
   const dispatch = useDispatch();

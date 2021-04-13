@@ -8,7 +8,7 @@ const PostCard = ({ posts }) => {
   const dispatch = useDispatch();
   const onDelete = useCallback(
     (id) => () => {
-      dispatch(postActions.deletePost(id));
+      dispatch(postActions.deletePost(id)(id));
     },
     [],
   );
