@@ -27,3 +27,10 @@ export const addPost = async (param) => {
   }
   return utils.axiosPost(`${baseURL}/posts`, param);
 };
+
+export const removePost = async (id) => {
+  if (utils.isEmpty(id)) {
+    throw new utils.CustomException(new Error('REQ PARAM MISSING'), 'API_ERROR', 'post.removePost');
+  }
+  return utils.axiosDelete(`${baseURL}/posts/${id}`);
+};

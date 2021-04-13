@@ -24,6 +24,11 @@ export const CREATE_POST_REQUEST = 'CREATE_POST_REQUEST';
 export const CREATE_POST_SUCCESS = 'CREATE_POST_SUCCESS';
 export const CREATE_POST_FAILURE = 'CREATE_POST_FAILURE';
 
+export const DELETE_POST = 'DELETE_POST';
+export const DELETE_POST_REQUEST = 'DELETE_POST_REQUEST';
+export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
+export const DELETE_POST_FAILURE = 'DELETE_POST_FAILURE';
+
 const initialState = {
   totalCounts: 0,
   totalCountsLoading: false, // 전체글 불러오기 시도중
@@ -49,6 +54,7 @@ export const getTotalCounts = createPromiseThunk(TOTAL_COUNTS, api.totalCounts);
 export const getLoadPost = createPromiseThunk(LOAD_POST, api.loadPost);
 export const getLoadPosts = createPromiseThunk(LOAD_POSTS, api.loadPosts);
 export const createPost = createPromiseThunk(CREATE_POST, api.addPost);
+export const deletePost = createPromiseThunk(DELETE_POST, api.removePost);
 
 export default handleActions(
   {
@@ -137,6 +143,28 @@ export default handleActions(
       return produce(state, (draft) => {
         draft.createPostLoading = false;
         draft.createPostError = action.payload;
+      });
+    },
+
+    [DELETE_POST_REQUEST]: (state, action) => {
+      return produce(state, (draft) => {
+        draft.deletePostLoading = true;
+        draft.deletePostError = null;
+        draft.deletePostDone = false;
+      });
+    },
+    [DELETE_POST_SUCCESS]: (state, action) => {
+      return produce(state, (draft) => {
+        console.log(11111, action);
+        draft.deletePostLoading = false;
+        draft.deletePostDone = true;
+        draft.mainPosts = draft.mainPosts.filter((v) => v.id !== action.payload);
+      });
+    },
+    [DELETE_POST_FAILURE]: (state, action) => {
+      return produce(state, (draft) => {
+        draft.deletePostLoading = false;
+        draft.deletePostError = action.payload;
       });
     },
   },
